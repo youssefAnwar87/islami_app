@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/UI/screens/home_screen.dart';
 
 void main() {
   runApp(MaterialApp(
-home: Scaffold(
-
-),
+    routes: {
+      Homescreen.routeName : (_) => Homescreen(),
+    },
+    initialRoute: Homescreen.routeName  ,
   ));
 }
 
