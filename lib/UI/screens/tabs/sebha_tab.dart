@@ -40,12 +40,12 @@ class _SebhaTabState extends State<SebhaTab> {
 
               });
             },
-              child: Container(
-                margin: EdgeInsets.only(top: 0),
+
                 child: Transform.rotate(
                   angle: rotationAngle * (3.14159265359 / 180),
                     child: Image.asset("assets/images/body_sebha_logo.png")),
-              )),
+
+          ),
           SizedBox(height: 30),
           Center(
               child: Text(
@@ -65,6 +65,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 onPressed: () {
                   counter++;
                   checkCounter();
+                  rotationAngle +=15;
                   setState(() {});
                 }),
           ),

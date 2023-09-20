@@ -34,6 +34,7 @@ String fileContent="";
             backgroundColor: AppColors.transparent,
             centerTitle: true,
             title: Text(args.sureOrHadethName, style: AppTheme.appBarTitleTextStyle),
+            iconTheme: IconThemeData(color: Colors.black,size : 30 ),
 
           ),
           body: fileContent.isEmpty ? const  Center(child:  CircularProgressIndicator()) :
