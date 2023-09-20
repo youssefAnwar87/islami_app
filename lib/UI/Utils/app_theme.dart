@@ -6,4 +6,6 @@ abstract class AppTheme{
       fontSize:  30 , fontWeight: FontWeight.bold, color: AppColors.accent);
   static  TextStyle quranTabTitleTextStyle = TextStyle(
       fontSize:  25 , fontWeight: FontWeight.w600, color: AppColors.accent);
+  static  TextStyle sebhaTitleTextStyle = TextStyle(
+      fontSize:  25 , fontWeight: FontWeight.normal, color: AppColors.accent);
 }
