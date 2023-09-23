@@ -7,7 +7,7 @@ import '../../Utils/app_colors.dart';
 import '../../Utils/app_theme.dart';
 import '../../Utils/constants.dart';
 import '../details_screen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class AhadethTab extends StatelessWidget {
 List<String>ahadethNames = List.generate(50, (index){
   return "${index+1}الحديث رقم ";
@@ -23,13 +23,22 @@ List<String>ahadethNames = List.generate(50, (index){
           color: AppColors.primaiary,
 
         ),
-        Text("Hadeth name",style: AppTheme.quranTabTitleTextStyle,textAlign: TextAlign.center),
+        Text(AppLocalizations.of(context)!.hadeth_name,style: AppTheme.quranTabTitleTextStyle,textAlign: TextAlign.center),
         Divider(
           thickness: 3,
           color: AppColors.primaiary,
         )
         ,   Expanded(flex: 7,
-          child:ListView.builder(
+          child:ListView.separated(
+            separatorBuilder: (context, _){
+              return Container(
+                height: 1,
+                child: Divider(
+                  thickness: 3,
+                  color: AppColors.primaiary,
+                ),
+              );
+            } ,
             itemCount: ahadethNames.length,
             itemBuilder: (_,index){
               return TextButton(onPressed: (){

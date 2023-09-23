@@ -7,7 +7,7 @@ import 'package:islami_app/UI/Utils/constants.dart';
 import 'package:islami_app/UI/screens/details_screen.dart';
 
 import '../../../model/deatils_screen_args.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranTab extends StatelessWidget {
   @override
@@ -21,13 +21,22 @@ class QuranTab extends StatelessWidget {
           color: AppColors.primaiary,
           
         ),
-        Text("Sura name",style: AppTheme.quranTabTitleTextStyle,textAlign: TextAlign.center),
+        Text(AppLocalizations.of(context)!.sura_name,style: AppTheme.quranTabTitleTextStyle,textAlign: TextAlign.center),
         Divider(
           thickness: 3,
           color: AppColors.primaiary,
         )
        ,   Expanded(flex: 7,
-          child:ListView.builder(
+          child:ListView.separated(
+            separatorBuilder: (context, _){
+              return Container(
+                height: 1,
+                child: Divider(
+                  thickness: 3,
+                  color: AppColors.primaiary,
+                ),
+              );
+            },
             itemCount: Constants.suraNames.length,
             itemBuilder: (_,index){
               return TextButton(onPressed: (){

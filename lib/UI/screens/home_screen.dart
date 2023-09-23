@@ -7,7 +7,8 @@ import 'package:islami_app/UI/screens/tabs/ahadeth_tab.dart';
 import 'package:islami_app/UI/screens/tabs/quran_tab.dart';
 import 'package:islami_app/UI/screens/tabs/radio_tab.dart';
 import 'package:islami_app/UI/screens/tabs/sebha_tab.dart';
-
+import 'package:islami_app/UI/screens/tabs/settings_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Homescreen extends StatefulWidget {
   static String routeName = "home";
 
@@ -22,6 +23,7 @@ class _HomescreenState extends State<Homescreen> {
     AhadethTab(),
     SebhaTab(),
     RadioTab(),
+    SettingsTab(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class _HomescreenState extends State<Homescreen> {
         appBar: AppBar(
           elevation: 0,
      backgroundColor: AppColors.transparent,
-          title: Center(child: Text("Islami", style: AppTheme.appBarTitleTextStyle),
+          title: Center(child: Text(AppLocalizations.of(context)!.app_title, style: AppTheme.appBarTitleTextStyle),
         ),
 
       ),
@@ -58,10 +60,11 @@ class _HomescreenState extends State<Homescreen> {
       selectedItemColor: AppColors.accent,
       iconSize: 32,
       items: [
-BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icQuran)),label: "Quran"),
-BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icAhadeth)),label: "Ahadeth"),
-BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icSebha)),label: "Sebha"),
-BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icRadio)),label: "Radio"),
+BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icQuran)),label:AppLocalizations.of(context)!.quran ),
+BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icAhadeth)),label: AppLocalizations.of(context)!.hadeth),
+BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icSebha)),label: AppLocalizations.of(context)!.sebha),
+BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icRadio)),label: AppLocalizations.of(context)!.radio),
+BottomNavigationBarItem(icon:Icon(Icons.settings),label: AppLocalizations.of(context)!.settings),
       ],
     ),
   );
