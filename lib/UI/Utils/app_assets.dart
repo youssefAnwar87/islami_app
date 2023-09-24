@@ -8,4 +8,6 @@ static const quranTabLogo = "${baseImagesPath}quran_tab_logo.png";
 static const ahadethTabLogo = "${baseImagesPath}ahadeth_tab_logo.png";
 static const background = "${baseImagesPath}background.png";
 static const backgroundDark = "${baseImagesPath}backgroundDark.png";
+  static const radio = "${baseImagesPath}radio_image.png";
+
 }

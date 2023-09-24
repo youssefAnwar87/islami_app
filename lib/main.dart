@@ -5,8 +5,12 @@ import 'package:islami_app/UI/screens/home_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/provider/settingsProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SettingProvider().loadSavedSettings();
   runApp(ChangeNotifierProvider(
     create: (_)=> SettingProvider(),
       child: MyApp()));
