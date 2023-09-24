@@ -18,7 +18,7 @@ class RadioTab extends StatelessWidget {
         Spacer(),
         Image.asset(AppAssets.radio),
         SizedBox(height: 30,),
-        Text("اذاعة القرآن الكريم", style: Theme.of(context).textTheme.bodySmall,textAlign: TextAlign.center,),
+        Text("اذاعة القرآن الكريم", style: provider.isDark()? Theme.of(context).textTheme.bodySmall :Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black),textAlign: TextAlign.center,),
         SizedBox(height: 30,),
 
         Row(

@@ -20,7 +20,7 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  int currentTabIndex = 3;
+  int currentTabIndex = 0;
   List<Widget> tabs =[
     QuranTab(),
     AhadethTab(),

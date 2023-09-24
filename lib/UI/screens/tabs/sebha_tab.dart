@@ -65,7 +65,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     bottom: 10,
                     child: Text(
                       "عدد التسبيحات",
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: provider.isDark()? Theme.of(context).textTheme.bodySmall :Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black),
                       textAlign: TextAlign.center,
                     ),
                   )
