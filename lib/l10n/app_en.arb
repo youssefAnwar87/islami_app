@@ -10,7 +10,9 @@
 "arabic" : "Arabic",
 "light" : "Light",
 "dark" : "Dark",
+"mode" : "Dark Mode",
 "language" : "Language",
 "sura_name" : "Sura Name",
-"hadeth_name" : "Hadeth Name"
+"hadeth_name" : "Hadeth Name",
+"select_your_language" :"Select your Language"
 }

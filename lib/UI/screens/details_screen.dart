@@ -30,11 +30,9 @@ String fileContent="";
 
           backgroundColor: AppColors.transparent,
           appBar: AppBar(
-            elevation: 0,
-            backgroundColor: AppColors.transparent,
-            centerTitle: true,
-            title: Text(args.sureOrHadethName, style: AppTheme.appBarTitleTextStyle),
-            iconTheme: IconThemeData(color: Colors.black,size : 30 ),
+
+            title: Text(args.sureOrHadethName, style: Theme.of(context).appBarTheme.titleTextStyle),
+            iconTheme: Theme.of(context).appBarTheme.iconTheme,
 
           ),
           body: fileContent.isEmpty ? const  Center(child:  CircularProgressIndicator()) :
@@ -43,7 +41,7 @@ String fileContent="";
             child: SingleChildScrollView(
               child: Text(fileContent,
                 textDirection: TextDirection.rtl,
-                style: TextStyle(fontSize: 24 , color: AppColors.accent),
+                style:Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ),

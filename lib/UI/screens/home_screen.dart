@@ -3,6 +3,7 @@ import 'package:islami_app/UI/Utils/app_assets.dart';
 import 'package:islami_app/UI/Utils/app_colors.dart';
 
 import 'package:islami_app/UI/Utils/app_theme.dart';
+import 'package:islami_app/UI/Utils/my_theme.dart';
 import 'package:islami_app/UI/screens/tabs/ahadeth_tab.dart';
 import 'package:islami_app/UI/screens/tabs/quran_tab.dart';
 import 'package:islami_app/UI/screens/tabs/radio_tab.dart';
@@ -17,7 +18,7 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  int currentTabIndex = 0;
+  int currentTabIndex = 4;
   List<Widget> tabs =[
     QuranTab(),
     AhadethTab(),
@@ -30,15 +31,12 @@ class _HomescreenState extends State<Homescreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AppAssets.background), fit: BoxFit.fill)),
+              image: AssetImage(AppAssets.backgroundDark), fit: BoxFit.fill)),
       child: Scaffold(
 
-        backgroundColor: AppColors.transparent,
         appBar: AppBar(
-          elevation: 0,
-     backgroundColor: AppColors.transparent,
-          title: Center(child: Text(AppLocalizations.of(context)!.app_title, style: AppTheme.appBarTitleTextStyle),
-        ),
+
+          title: Text(AppLocalizations.of(context)!.app_title),
 
       ),
 
@@ -50,15 +48,15 @@ class _HomescreenState extends State<Homescreen> {
   }
 
   Widget BuildBottomNavigationBar()=> Theme(
-    data: ThemeData(canvasColor: AppColors.primaiary),
+    data: Theme.of(context).copyWith(canvasColor: Theme.of(context).primaryColor),
     child: BottomNavigationBar(
       currentIndex:currentTabIndex ,
       onTap: (index){
         currentTabIndex = index ;
         setState(() {});
       },
-      selectedItemColor: AppColors.accent,
       iconSize: 32,
+
       items: [
 BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icQuran)),label:AppLocalizations.of(context)!.quran ),
 BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icAhadeth)),label: AppLocalizations.of(context)!.hadeth),

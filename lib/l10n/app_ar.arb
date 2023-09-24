@@ -8,9 +8,12 @@
 "theme" : "النمط",
 "english" : "الانجليزيه",
 "arabic" : "العربيه",
-"light" : "Light",
-"dark" : "Dark",
+"light" : "المضيء",
+"mode" : "الوضع الليلي",
+"dark" : "غامق",
 "language" : "اللغه",
 "sura_name" : "اسم الصوره",
-"hadeth_name" : "اسم الحديث"
+"hadeth_name" : "اسم الحديث",
+"select_your_language" :"اختر اللغه"
+
 }

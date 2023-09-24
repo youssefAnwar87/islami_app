@@ -7,4 +7,5 @@ static const icAhadeth = "${baseImagesPath}ic_ahadeth.png";
 static const quranTabLogo = "${baseImagesPath}quran_tab_logo.png";
 static const ahadethTabLogo = "${baseImagesPath}ahadeth_tab_logo.png";
 static const background = "${baseImagesPath}background.png";
+static const backgroundDark = "${baseImagesPath}backgroundDark.png";
 }

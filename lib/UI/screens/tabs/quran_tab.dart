@@ -18,13 +18,13 @@ class QuranTab extends StatelessWidget {
         Expanded(flex : 3 ,child: Image.asset(AppAssets.quranTabLogo)),
         Divider(
           thickness: 3,
-          color: AppColors.primaiary,
+          color: Theme.of(context).canvasColor,
           
         ),
-        Text(AppLocalizations.of(context)!.sura_name,style: AppTheme.quranTabTitleTextStyle,textAlign: TextAlign.center),
+        Text(AppLocalizations.of(context)!.sura_name,style:Theme.of(context).textTheme.bodySmall,textAlign: TextAlign.center),
         Divider(
           thickness: 3,
-          color: AppColors.primaiary,
+          color: Theme.of(context).canvasColor,
         )
        ,   Expanded(flex: 7,
           child:ListView.separated(
@@ -33,7 +33,7 @@ class QuranTab extends StatelessWidget {
                 height: 1,
                 child: Divider(
                   thickness: 3,
-                  color: AppColors.primaiary,
+                  color: Theme.of(context).canvasColor,
                 ),
               );
             },
@@ -43,7 +43,7 @@ class QuranTab extends StatelessWidget {
                 Navigator.pushNamed(_, DeatailsScreen.routeName,
                 arguments: DetailsScreenArgs(sureOrHadethName: Constants.suraNames[index], filename: "${index+1}.txt", isQuarnFile: true));
               },
-                  child:Text(Constants.suraNames[index],style: AppTheme.quranTabTitleTextStyle.copyWith(fontWeight: FontWeight.normal),textAlign: TextAlign.center,)
+                  child:Text(Constants.suraNames[index],style:  Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.normal),textAlign: TextAlign.center,)
               );
             },
 

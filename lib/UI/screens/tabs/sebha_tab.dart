@@ -22,6 +22,7 @@ List<String> tasbihat =[
 
 class _SebhaTabState extends State<SebhaTab> {
   int counter = 0;
+  int switchTsbiha = 0;
   int indexInTsbihat =0;
   double rotationAngle = 0.0;
 
@@ -50,10 +51,11 @@ class _SebhaTabState extends State<SebhaTab> {
           Center(
               child: Text(
             "عدد التسبيحات",
-            style: AppTheme.sebhaTitleTextStyle
-                .copyWith(fontWeight: FontWeight.w600),
-            textAlign: TextAlign.center,
-          )),
+            style: Theme.of(context).textTheme.bodyMedium ,
+                textAlign: TextAlign.center,
+
+              )
+          ),
           SizedBox(height: 20),
           Container(
             padding: EdgeInsets.only(bottom: 15, top: 15, right: 8, left: 8),
@@ -64,6 +66,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 child: Text("$counter", style: AppTheme.sebhaTitleTextStyle),
                 onPressed: () {
                   counter++;
+                  switchTsbiha++;
                   checkCounter();
                   rotationAngle +=15;
                   setState(() {});
@@ -87,8 +90,8 @@ class _SebhaTabState extends State<SebhaTab> {
   }
 
   void checkCounter() {
-    if (counter == 34){
-      counter = 0;
+    if (switchTsbiha == 34){
+      switchTsbiha = 0;
       indexInTsbihat = (indexInTsbihat + 1) % tasbihat.length;
     }
 

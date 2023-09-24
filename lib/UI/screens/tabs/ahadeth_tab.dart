@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islami_app/provider/settingsProvider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../model/deatils_screen_args.dart';
 import '../../Utils/app_assets.dart';
@@ -9,24 +11,26 @@ import '../../Utils/constants.dart';
 import '../details_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class AhadethTab extends StatelessWidget {
-List<String>ahadethNames = List.generate(50, (index){
-  return "${index+1}الحديث رقم ";
-});
+
   @override
   Widget build(BuildContext context) {
+    SettingProvider provider = Provider.of(context);
+    List<String>ahadethNames = List.generate(50, (index){
+      return provider.currentLocale == "en" ? "Hadeth number ${index+1}" : " الحديث رقم ${index+1}" ;
+    });
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch ,
       children: [
         Expanded(flex : 3 ,child: Image.asset(AppAssets.ahadethTabLogo)),
         Divider(
           thickness: 3,
-          color: AppColors.primaiary,
+          color: Theme.of(context).canvasColor,
 
         ),
-        Text(AppLocalizations.of(context)!.hadeth_name,style: AppTheme.quranTabTitleTextStyle,textAlign: TextAlign.center),
+        Text(AppLocalizations.of(context)!.hadeth_name,style:Theme.of(context).textTheme.bodySmall,textAlign: TextAlign.center),
         Divider(
           thickness: 3,
-          color: AppColors.primaiary,
+          color: Theme.of(context).canvasColor,
         )
         ,   Expanded(flex: 7,
           child:ListView.separated(
@@ -35,17 +39,22 @@ List<String>ahadethNames = List.generate(50, (index){
                 height: 1,
                 child: Divider(
                   thickness: 3,
-                  color: AppColors.primaiary,
+                  color: Theme.of(context).canvasColor,
                 ),
               );
             } ,
             itemCount: ahadethNames.length,
             itemBuilder: (_,index){
-              return TextButton(onPressed: (){
+              return TextButton(
+                  onPressed: (){
                 Navigator.pushNamed(_, DeatailsScreen.routeName,
                     arguments: DetailsScreenArgs(sureOrHadethName: ahadethNames[index], filename: "h${index+1}.txt", isQuarnFile: false));
               },
-                  child:Text(ahadethNames[index],style: AppTheme.quranTabTitleTextStyle.copyWith(fontWeight: FontWeight.normal),textAlign: TextAlign.center,)
+
+                  child:Text(
+                  //  textDirection :  TextDirection.rtl,
+
+                    ahadethNames[index],style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.normal),textAlign: TextAlign.center,)
               );
             },
 
