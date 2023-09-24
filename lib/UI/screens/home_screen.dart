@@ -10,6 +10,8 @@ import 'package:islami_app/UI/screens/tabs/radio_tab.dart';
 import 'package:islami_app/UI/screens/tabs/sebha_tab.dart';
 import 'package:islami_app/UI/screens/tabs/settings_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/provider/settingsProvider.dart';
+import 'package:provider/provider.dart';
 class Homescreen extends StatefulWidget {
   static String routeName = "home";
 
@@ -18,7 +20,7 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  int currentTabIndex = 4;
+  int currentTabIndex = 0;
   List<Widget> tabs =[
     QuranTab(),
     AhadethTab(),
@@ -28,10 +30,11 @@ class _HomescreenState extends State<Homescreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    SettingProvider provider = Provider.of(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AppAssets.backgroundDark), fit: BoxFit.fill)),
+              image: AssetImage(provider.isDark() ?AppAssets.backgroundDark : AppAssets.background ), fit: BoxFit.fill)),
       child: Scaffold(
 
         appBar: AppBar(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../../model/deatils_screen_args.dart';
+import '../../provider/settingsProvider.dart';
 import '../Utils/app_assets.dart';
 import '../Utils/app_colors.dart';
 import '../Utils/app_theme.dart';
@@ -20,19 +22,21 @@ String fileContent="";
 
   @override
   Widget build(BuildContext context) {
+    SettingProvider provider = Provider.of(context);
+
     args = ModalRoute.of(context)!.settings.arguments as DetailsScreenArgs;
    if(fileContent.isEmpty) readFile();
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(AppAssets.background), fit: BoxFit.fill)),
+                image: AssetImage(provider.isDark() ? AppAssets.backgroundDark: AppAssets.background), fit: BoxFit.fill)),
         child: Scaffold(
 
           backgroundColor: AppColors.transparent,
           appBar: AppBar(
 
-            title: Text(args.sureOrHadethName, style: Theme.of(context).appBarTheme.titleTextStyle),
-            iconTheme: Theme.of(context).appBarTheme.iconTheme,
+            title: Text(args.sureOrHadethName, style:provider.isDark() ?Theme.of(context).appBarTheme.titleTextStyle!.copyWith(color: AppColors.accentDark) : Theme.of(context).appBarTheme.titleTextStyle),
+            iconTheme: provider.isDark() ? Theme.of(context).appBarTheme.iconTheme!.copyWith(color: AppColors.white): Theme.of(context).appBarTheme.iconTheme,
 
           ),
           body: fileContent.isEmpty ? const  Center(child:  CircularProgressIndicator()) :

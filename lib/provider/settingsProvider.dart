@@ -12,5 +12,5 @@ changeCurrentMode(ThemeMode newMode){
     currentMode = newMode;
 notifyListeners();
 }
-
+bool isDark()=> currentMode == ThemeMode.dark;
 }

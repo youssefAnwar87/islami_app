@@ -22,12 +22,16 @@ class Mytheme{
       selectedIconTheme: IconThemeData(
 size: 32
       ),
+        unselectedIconTheme: IconThemeData(
+            size: 24
+        )
 
     ),
     textTheme: TextTheme(bodySmall: AppTheme.quranTabTitleTextStyle,
         bodyMedium: AppTheme.sebhaTitleTextStyle.copyWith(fontWeight: FontWeight.w600),
       bodyLarge:  TextStyle(fontSize: 24 , color: AppColors.accent),
-    )
+    ),
+    dividerColor: AppColors.primaiary
 
   );
   static ThemeData DarkTheme = ThemeData(
@@ -40,6 +44,9 @@ size: 32
       centerTitle: true,
       elevation: 0,
       backgroundColor: AppColors.transparent,
+      actionsIconTheme: IconThemeData(
+        color: AppColors.white
+      )
       ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: AppColors.accentDark,
@@ -47,13 +54,18 @@ size: 32
       selectedIconTheme: IconThemeData(
 size: 32
       ),
+      unselectedIconTheme: IconThemeData(
+        size: 24
+      )
 
     ),
     textTheme: TextTheme(
       bodySmall: AppTheme.quranTabTitleTextStyle.copyWith(color: AppColors.white), //suraOrHadethName
       bodyMedium: AppTheme.sebhaTitleTextStyle.copyWith(fontWeight: FontWeight.w600,color: AppColors.white), //sebha
-      bodyLarge:  TextStyle(fontSize: 24 , color: AppColors.white),//list
-    )
+      bodyLarge:  TextStyle(fontSize: 24 , color: AppColors.accentDark),//list
+    ),
+      dividerColor: AppColors.accentDark
+
 
   );
 }

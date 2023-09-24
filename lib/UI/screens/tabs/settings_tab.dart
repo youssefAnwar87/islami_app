@@ -13,7 +13,7 @@ class SettingsTab extends StatefulWidget {
 }
 
 class _SettingsTabState extends State<SettingsTab> {
-bool darkModeSwitchValue = true;
+bool darkModeSwitchValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -120,13 +120,14 @@ bool darkModeSwitchValue = true;
   }
 
   getLanguageRow(bool isSelected, String language, BuildContext context) {
+    SettingProvider provider = Provider.of(context);
+
     if (isSelected) {
       return Text(
         language,
-        style: Theme
-            .of(context)
-            .textTheme
-            .bodySmall!.copyWith(color: Theme.of(context).canvasColor),
+        style: provider.isDark() ? Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).canvasColor)
+        : Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).primaryColor),
+
       );
     } else {
       return Text(

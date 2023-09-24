@@ -24,13 +24,11 @@ class AhadethTab extends StatelessWidget {
         Expanded(flex : 3 ,child: Image.asset(AppAssets.ahadethTabLogo)),
         Divider(
           thickness: 3,
-          color: Theme.of(context).canvasColor,
 
         ),
         Text(AppLocalizations.of(context)!.hadeth_name,style:Theme.of(context).textTheme.bodySmall,textAlign: TextAlign.center),
         Divider(
           thickness: 3,
-          color: Theme.of(context).canvasColor,
         )
         ,   Expanded(flex: 7,
           child:ListView.separated(
@@ -39,7 +37,6 @@ class AhadethTab extends StatelessWidget {
                 height: 1,
                 child: Divider(
                   thickness: 3,
-                  color: Theme.of(context).canvasColor,
                 ),
               );
             } ,
