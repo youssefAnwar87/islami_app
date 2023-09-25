@@ -15,7 +15,11 @@ class SettingsTab extends StatefulWidget {
 
 class _SettingsTabState extends State<SettingsTab> {
 bool darkModeSwitchValue = false;
-
+// void initState() {
+//   super.initState();
+//   // Call loadDarkModeSetting to initialize darkModeSwitchValue
+//   Provider.of<SettingProvider>(context, listen: false).loadSavedSettings();
+// }
   @override
   Widget build(BuildContext context) {
     SettingProvider provider = Provider.of(context);
@@ -143,11 +147,13 @@ bool darkModeSwitchValue = false;
   }
 
   Widget buildSettingsRow(String title , bool switchValue,Function (bool)onChanged,BuildContext context){
+    SettingProvider provider = Provider.of(context);
+
     return   Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(title,style: Theme.of(context).textTheme.bodySmall,),
-        Switch(value: darkModeSwitchValue, onChanged: onChanged, activeColor: Theme.of(context).canvasColor,)
+        Switch(value: provider.isDark(), onChanged: onChanged, activeColor: Theme.of(context).canvasColor,)
       ],
     );
   }

@@ -45,4 +45,5 @@ notifyListeners();
 
 }
 bool isDark()=> currentMode == ThemeMode.dark;
+
 }
