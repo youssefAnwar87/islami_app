@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/UI/Utils/app_assets.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../provider/settingsProvider.dart';
 
@@ -18,7 +19,7 @@ class RadioTab extends StatelessWidget {
         Spacer(),
         Image.asset(AppAssets.radio),
         SizedBox(height: 30,),
-        Text("اذاعة القرآن الكريم", style: provider.isDark()? Theme.of(context).textTheme.bodySmall :Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black),textAlign: TextAlign.center,),
+        Text(AppLocalizations.of(context)!.holy_quran_radio, style: provider.isDark()? Theme.of(context).textTheme.bodySmall :Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black),textAlign: TextAlign.center,),
         SizedBox(height: 30,),
 
         Row(
@@ -26,7 +27,7 @@ class RadioTab extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {  },
-              icon: Icon(Icons.skip_previous,size: 40,color: provider.isDark()  ? Theme.of(context).canvasColor : Theme.of(context).primaryColor),
+              icon: Icon(provider.currentLocale =='en' ? Icons.skip_previous :Icons.skip_next ,size: 40,color: provider.isDark()  ? Theme.of(context).canvasColor : Theme.of(context).primaryColor),
 
               ),
             SizedBox(width: 35,),
@@ -40,7 +41,7 @@ class RadioTab extends StatelessWidget {
             SizedBox(width: 35,),
             IconButton(
               onPressed: () {  },
-              icon: Icon(Icons.skip_next,size: 40,color: provider.isDark()  ? Theme.of(context).canvasColor : Theme.of(context).primaryColor),
+              icon: Icon(provider.currentLocale =='en' ?  Icons.skip_next :Icons.skip_previous  ,size: 40,color: provider.isDark()  ? Theme.of(context).canvasColor : Theme.of(context).primaryColor),
 
               ),
           ],

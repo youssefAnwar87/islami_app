@@ -14,5 +14,8 @@
 "language" : "Language",
 "sura_name" : "Sura Name",
 "hadeth_name" : "Hadeth Name",
-"select_your_language" :"Select your Language"
+"select_your_language" :"Select your Language",
+"holy_quran_radio" : "Holy Quran Radio",
+"number_of_praises" : "Number of praises"
+
 }

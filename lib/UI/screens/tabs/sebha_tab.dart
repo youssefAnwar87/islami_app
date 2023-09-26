@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../../provider/settingsProvider.dart';
 import '../../Utils/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -64,7 +65,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   Positioned(
                     bottom: 10,
                     child: Text(
-                      "عدد التسبيحات",
+                      AppLocalizations.of(context)!.number_of_praises,
                       style: provider.isDark()? Theme.of(context).textTheme.bodySmall :Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black),
                       textAlign: TextAlign.center,
                     ),
