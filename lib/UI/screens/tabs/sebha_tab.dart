@@ -29,68 +29,74 @@ class _SebhaTabState extends State<SebhaTab> {
   @override
   Widget build(BuildContext context) {
     SettingProvider provider = Provider.of(context);
-    double space = MediaQuery.of(context).size.height * 0.5;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      child: Center(
+    return Scaffold(
+      body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: space,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Positioned(
-                    right: 60,
-                    top: 22,
-                    child: Image.asset(provider.isDark()
-                        ? "assets/images/head_sebha_dark.png"
-                        : "assets/images/head_sebha_logo.png"),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      counter++;
-                      switchTsbiha++;
-                      checkCounter();
-                      rotationAngle += 15;
-                      setState(() {});
-                    },
-                    child: Transform.rotate(
-                      angle: rotationAngle * (3.14159265359 / 180),
+            Expanded(
+              flex: 5,
+              child: Container(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Positioned(
+                      right:screenWidth * 0.15,
+                      top: screenHeight * 0.03,
                       child: Image.asset(provider.isDark()
-                          ? "assets/images/body_sebha_dark.png"
-                          : "assets/images/body_sebha_logo.png"),
+                          ? "assets/images/head_sebha_dark.png"
+                          : "assets/images/head_sebha_logo.png"),
                     ),
-                  ),
-                  Positioned(
-                    bottom: 10,
-                    child: Text(
-                      AppLocalizations.of(context)!.number_of_praises,
-                      style: provider.isDark()? Theme.of(context).textTheme.bodySmall :Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black),
-                      textAlign: TextAlign.center,
+                    GestureDetector(
+                      onTap: () {
+                        counter++;
+                        switchTsbiha++;
+                        checkCounter();
+                        rotationAngle += 15;
+                        setState(() {});
+                      },
+                      child: Transform.rotate(
+                        angle: rotationAngle * (3.14159265359 / 180),
+                        child: Image.asset(provider.isDark()
+                            ? "assets/images/body_sebha_dark.png"
+                            : "assets/images/body_sebha_logo.png"),
+                      ),
                     ),
-                  )
-                ],
+                    Positioned(
+                      bottom: screenHeight * 0.01,
+                      child: Text(
+                        AppLocalizations.of(context)!.number_of_praises,
+                        style: provider.isDark()
+                            ? Theme.of(context).textTheme.bodySmall
+                            : Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.02),
             Container(
-              padding: EdgeInsets.only(bottom: 15, top: 15, right: 8, left: 8),
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 8),
               decoration: BoxDecoration(
-                  color:
-                  provider.isDark() ? Color(0xff151c31) : Color(0xffc8b496),
-                  borderRadius: BorderRadius.circular(25)),
+                color: provider.isDark()
+                    ? Color(0xff151c31)
+                    : Color(0xffc8b496),
+                borderRadius: BorderRadius.circular(25),
+              ),
               child: TextButton(
                 style: ButtonStyle(
                   overlayColor: MaterialStateColor.resolveWith(
-                        (states) => Colors.transparent, // Set to transparent when pressed
+                        (states) => Colors.transparent,
+                  ),
                 ),
-                )
-              ,
-              child: Text("$counter",
-                    style: AppTheme.sebhaTitleTextStyle.copyWith(
-                        color:
-                        provider.isDark() ? Colors.white : Colors.black)),
                 onPressed: () {
                   counter++;
                   switchTsbiha++;
@@ -98,22 +104,34 @@ class _SebhaTabState extends State<SebhaTab> {
                   rotationAngle += 15;
                   setState(() {});
                 },
+                child: Text(
+                  "$counter",
+                  style: AppTheme.sebhaTitleTextStyle.copyWith(
+                    color: provider.isDark() ? Colors.white : Colors.black,
+                  ),
+                ),
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: screenHeight * 0.03),
             Container(
               padding: EdgeInsets.symmetric(vertical: 7, horizontal: 20),
               decoration: BoxDecoration(
-                  color: provider.isDark()
-                      ? Theme.of(context).canvasColor
-                      : Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(30)),
+                color: provider.isDark()
+                    ? Theme.of(context).canvasColor
+                    : Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: Text(
                 tasbihat[indexInTsbihat],
                 style: AppTheme.sebhaTitleTextStyle.copyWith(
-                    color: provider.isDark() ? Colors.black : AppColors.white),
+                  color: provider.isDark() ? Colors.black : AppColors.white,
+                ),
               ),
-            )
+            ),
+            Expanded(
+              flex: 1,
+              child: SizedBox(), // Spacer at the bottom
+            ),
           ],
         ),
       ),
