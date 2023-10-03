@@ -37,20 +37,19 @@ class _SebhaTabState extends State<SebhaTab> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              flex: 5,
-              child: Container(
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Positioned(
-                      right:screenWidth * 0.15,
-                      top: screenHeight * 0.03,
-                      child: Image.asset(provider.isDark()
-                          ? "assets/images/head_sebha_dark.png"
-                          : "assets/images/head_sebha_logo.png"),
-                    ),
-                    GestureDetector(
+            Container(
+              height: screenHeight *0.45,
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  Container(
+                    margin : EdgeInsets.only(left: screenWidth*0.09) ,
+                    child: Image.asset(provider.isDark()
+                        ? "assets/images/head_sebha_dark.png"
+                        : "assets/images/head_sebha_logo.png"),
+                  ),
+                  Center(
+                    child: GestureDetector(
                       onTap: () {
                         counter++;
                         switchTsbiha++;
@@ -65,21 +64,21 @@ class _SebhaTabState extends State<SebhaTab> {
                             : "assets/images/body_sebha_logo.png"),
                       ),
                     ),
-                    Positioned(
-                      bottom: screenHeight * 0.01,
-                      child: Text(
-                        AppLocalizations.of(context)!.number_of_praises,
-                        style: provider.isDark()
-                            ? Theme.of(context).textTheme.bodySmall
-                            : Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .copyWith(color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  Positioned(
+                    bottom: screenHeight * 0.01,
+                    child: Text(
+                      AppLocalizations.of(context)!.number_of_praises,
+                      style: provider.isDark()
+                          ? Theme.of(context).textTheme.bodySmall
+                          : Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: Colors.black),
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
               ),
             ),
             SizedBox(height: screenHeight * 0.02),
