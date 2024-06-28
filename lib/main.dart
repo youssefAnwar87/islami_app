@@ -7,7 +7,7 @@ import 'package:islami_app/provider/settingsProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-//test
+//test hghgjhgjh
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(ChangeNotifierProvider(
